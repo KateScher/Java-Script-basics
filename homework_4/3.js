@@ -14,20 +14,27 @@
 не окажется, значит нужно будет вывести пустой массив.
 */
 
-const array = [];
-for (let i = 0; i < 5; i++) {
-  array.push(Math.floor(Math.random() * 10));
-}
-console.log(array);
+// const array = [];
+// for (let i = 0; i < 5; i++) {
+//   array.push(Math.floor(Math.random() * 10));
+// }
+// console.log(array);
 
-let sum = 0;
-array.forEach((element) => {
-  sum = sum + element;
-});
-console.log(sum);
+// let sum = 0;
+// array.forEach((element) => {
+//   sum = sum + element;
+// });
+// console.log(sum);
 
-array.sort();
-const minNum = array[0];
-console.log(minNum);
+// const minValue = Math.min.apply(null, array);
+// console.log(minValue);
 
-const arr = [];
+// const arr = [];
+// const element = 3;
+// let getIndx = array.indexOf(element);
+// while (getIndx != -1) {
+//   arr.push(getIndx);
+//   getIndx = array.indexOf(element, getIndx + 1);
+// }
+
+// console.log(arr);

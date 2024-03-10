@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lection 4</title>
+  </head>
+  <body>
+    <script src="script.js" defer></script>
+    <script>
+      // const product = {
+      //   name: "Стол",
+      //   productPrice: 2000,
+      // };
+
+      // let productSale = product; // дубликат объекта не создается, обращение идет по ссылке
+      // console.log(productSale);
+      // productSale.productPrice = 1500;
+      // console.log("Это скидка" + productSale); // 2000
+      // console.log(product); // 1500
+      // Теперь обращение по ссылке - цены будут одинаковыми
+      // let productSale = product;
+      // productSale.Price = 1500;
+      // console.log(productSale); // price 1500
+      // console.log(product); // price 1500
+      //--------------
+
+      // Добавим метод(функцию) в объект, который будет работать со св-ми
+      // const product = {
+      //   name: "Стол",
+      //   price: 2000,
+      //   count: 2, // если count будет больше нуля, в консоль выведется Вы купили данный товар
+      //   buy: function () {
+      //     if (product.count > 0) {
+      //       console.log("Вы купили данный товар");
+      //     } else {
+      //       console.log("Данный товар нельзя добавить в корзину");
+      //     }
+      //   },
+      // };
+      // product.buy();
+
+      //---------------
+      /*Усложним объект и добавим к нему ф-ю, - она изменится и нам не надо передавать в нее объект. нам понадобятся:
+      - булевое св-во для хранения состояния регистрации пользователя;
+      - условная проверка в методе, кот. убедится, что польз-ль зарег-н.
+      HO!!! Данный метод неудобен тем, что если поменять объект product на новое название,
+      то придется искать в коде все значения - в следующем примере все обращения к значению объекта product поменяем на слово 'this" */
+      // const product = {
+      //   name: "Стол",
+      //   price: 2000,
+      //   count: 2,
+      //   userRegistred: true,
+      //   reg: function () {
+      //     product.userRegistred = true;
+      //   },
+      //   countProduct: function () {
+      //     if (product.count > 0) {
+      //       console.log("Вы можете купиьть данный товар");
+      //     } else {
+      //       console.log("Данный товар нельзя добавить в корзину");
+      //     }
+      //   },
+      //   buyProduct: function () {
+      //     if (product.userRegistred) {
+      //       console.log("Товар в корзине");
+      //     } else {
+      //       console.log(
+      //         "Вам нужно зарегистрироваться, сначала выполнить product.reg()"
+      //       );
+      //     }
+      //   },
+      // };
+      // product.buyProduct();
+      // product.reg();
+
+      // ---------- Поменяем все обращения на слово this и сменим название объекта
+
+      // const productNew = {
+      //   name: "Стол",
+      //   price: 2000,
+      //   count: 2,
+      //   userRegistred: true,
+      //   reg: function () {
+      //     this.userRegistred = true;
+      //   },
+      //   countProduct: function () {
+      //     if (this.count > 0) {
+      //       console.log("Вы можете купиьть данный товар");
+      //     } else {
+      //       console.log("Данный товар нельзя добавить в корзину");
+      //     }
+      //   },
+      //   buyProduct: function () {
+      //     if (this.userRegistred) {
+      //       console.log("Товар в корзине");
+      //     } else {
+      //       console.log(
+      //         "Вам нужно зарегистрироваться, сначала выполнить product.reg()"
+      //       );
+      //     }
+      //   },
+      // };
+      // productNew.buyProduct();
+      // productNew.reg();
+
+      // -------------- ПЕРЕБОР ЗНАЧЕНИЙ
+      /*Цикл for in перебирает св-ва объекта, которые последовательно присваиваются переменной key. Ниже альтернативный способ обращения к свойствам объекта- запись с квадратными скобками, - она делает то же самое, но с большей гибкостью
+      for (const key in object) {
+        console.log(key + ": " + object[key]);
+      }*/
+      // Пример с циклом for in
+
+      // const productTest = {
+      //   text: "hello",
+      //   price: 1000,
+      // };
+      // for (const key in productTest) {
+      //   console.log(key); // => text, price
+      // }
+
+      // for (const key in productTest) {
+      //   console.log(productTest["text"]); // => hello
+      // }
+
+      // for (const key in productTest) {
+      //   console.log(productTest[key]); // => hello, 1000
+      // }
+
+      // --- ПРЕОБРАЗОВАНИЕ ОБЪЕКТОВ В МАССИВ
+      /*Если попробовать применить метод map() в объекте, будет ошибка,
+      т.к. у объектов нет метода map(), - надо преобразовать объект в массив и уже после с ним работать. Рассмотрим методы, которые позволяют это сделать:
+      object.keys
+      object.values
+      object.entries
+      Работа с объектами и функции высшего порядка:
+      - map - итерация всего массива и создание на его основе нового;
+      - filter - фильтрует элементы массива по правилу, которое задаем мы сами, позволяет исключить лишние элементы и получить новый массив;
+      - reduce - проходится по всему массиву, собирает и обрабатывает его значения в новую форму;
+      - some - используют для проверки, есть ли в массиве хоть 1 нужный элемент;
+      - find*/
+
+      // Примеры:
+      // есть массив по зп сотрудников, необходимо проиндексировать все зп в 2 раза
+      // const array = [1, 2, 3, 10, 15];
+      // array.map((salary) => salary * 2);
+      // const arrayUp = array.map((salary) => salary * 2);
+      // console.log(array);
+      // console.log(arrayUp);
+
+      // filter - найдем кто получает больше или равно 10:
+      // const array = [1, 2, 3, 10, 15];
+      // array.filter((item) => item >= 10); // => [10, 15]
+      // some - есть ли такие значения как больше или равно 10:
+      const array = [1, 2, 3, 10, 15];
+      array.some((item) => item >= 10); // => true
+      // сложить числа и получить среднеарифметическое:
+      // array.reduce((a, b) => a + b); // => 31
+      array.reduce((a, b) => a + b) / array.length; // => 6.2
+      // Деструктуризация - можно легко получать данные из массива или объекта, сохраняя их в новые переменные.
+    </script>
+  </body>
+</html>

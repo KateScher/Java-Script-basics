@@ -12,4 +12,10 @@ xxxx
 xxxxx
 */
 
-// Здесь пишем решение, данный комментарий необходимо стереть.
+const lines = 20;
+let str = " ";
+const iks = "x";
+for (let i = 0; i < lines; i++) {
+  str += iks;
+  console.log(str);
+}
