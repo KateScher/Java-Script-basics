@@ -1,3 +1,10 @@
+// const arr = [2, 4, 8];
+// let newArr = arr;  // это не создание нового массива, а только ссылка на предыдущий
+// newArr[0] = 16;  // заменит 1й элемент 2 на 16 везде
+
+// newArr = arr.map((el) => el * 10); // а вот map создает уже новый массив
+
+// -------------------------
 // Задание 1:
 
 // 1. Создайте объект с ключами от 1 до 7, в качестве значений содержащий имена
@@ -15,17 +22,17 @@
 // фамилию, имя и возраст одной строкой.
 
 // const user = {
-//     name: "Павел",
-//     surname: "Тарасов",
-//     age: 33,
+//   name: "Павел",
+//   surname: "Тарасов",
+//   age: 33,
 // };
 
 // console.log(`${user.name} ${user.surname} ${user.age}`);
 
 // const user = {
-//     name: "Павел",
-//     surname: "Тарасов",
-//     age: 33,
+//     name: "Екатерина",
+//     surname: "Щербакова",
+//     age: 18,
 // };
 
 // console.log(user);
@@ -34,10 +41,10 @@
 // ввести с клавиатуры.
 
 // const user = {
-//     name: "Павел",
+//     name: "Екатерина",
 //     secondName: prompt('enter sername: '),
-//     surname: "Тарасов",
-//     age: 33,
+//     surname: "Щербакова",
+//     age: 18,
 // };
 
 // console.log(`${user.name} ${user.secondName} ${user.surname} ${user.age}`);
@@ -89,45 +96,46 @@
 // }
 // console.log(obj);
 
-// невозмоно использовать с объектом
+// невозмоно использовать forEach с объектом
+// неверное решение:
 // obj.forEach(element => {
 //     element ** 2;
 //     console.log(obj);
 // });
-
+//-----------------------------------
 // Задание 3:
 
 // const obj = {
-//     iodsuf: {
-//       asd: 1,
-//       zxc: {
-//         khvxc: {
-//           ncxvm: 10,
-//         }
+//   iodsuf: {
+//     asd: 1,
+//     zxc: {
+//       khvxc: {
+//         ncxvm: 10,
 //       },
-//       qwd: 3,
 //     },
-//     gerg: {
-//       joij: {
-//         shdjk: 99
-//       },
-//       kjn: 5,
-//       iyu: 6,
+//     qwd: 3,
+//   },
+//   gerg: {
+//     joij: {
+//       shdjk: 99,
 //     },
-//     xcnkv: {
-//       oirje: 7,
-//       iuhdv: 8,
-//       nmbb: 9,
-//     },
-//     jgjgj: 34,
-//   }
+//     kjn: 5,
+//     iyu: 6,
+//   },
+//   xcnkv: {
+//     oirje: 7,
+//     iuhdv: 8,
+//     nmbb: 9,
+//   },
+//   jgjgj: 34,
+// };
 
 // Найдите сумму всех чисел, приведенного объекта.
-
+// Поиск произведем с пом. рекурсии:
 // function summFunc(obj) {
 //     let summ = 0;
 
-//     // перебрать в объкте все свойства
+//     // перебрать в объекте все свойства
 //     for (const key in obj) {
 //         if (typeof obj[key] === "number") {
 //             summ = summ + obj[key];

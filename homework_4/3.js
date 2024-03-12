@@ -26,7 +26,7 @@
 // });
 // console.log(sum);
 
-// const minValue = Math.min.apply(null, array);
+// const minValue = Math.min.apply(null, array); //Math.min.apply(null, array); можно заменить на Math.min(...array);
 // console.log(minValue);
 
 // const arr = [];
